@@ -1,13 +1,67 @@
-// Importing Functions
+// Required Imports
 @import "../node_modules/bootstrap/scss/functions";
-// Custom Rules
-
-// Boilerplate
 @import "../node_modules/bootstrap/scss/variables";
+// Colors
+$clear: snow;
+$blue: steelblue; $brown: saddlebrown; // Combo 1
+$red: firebrick; $black: $gray-800; // Combo 2
+$thistle: thistle; $teal: teal; // Combo 3
+$olive: darkseagreen; $purple: rebeccapurple; // Combo 4
+$violet: darkslateblue; $green: seagreen; // Combo 5
+$gray: darkslategray; $pink: deeppink; // Combo 6
+$orange: lightsalmon; $crimson: maroon; // Combo 7
+$khaki: moccasin; $sage: darkolivegreen; // Combo 8
+$wood: $orange-800; $cyan: royalblue; // Combo 9
+$plum: plum; $magenta: mediumvioletred; // Combo 10
+$primary: plum; $secondary: mediumvioletred;
+// Container Style
+:root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary // Dynamic Color
+}
+
+body {
+  border-radius: 6px;
+  background-color: $clear;
+  #root > div {
+    color: $secondary; // Dynamic Color
+    width: 32rem;
+    padding: 2rem 3rem;
+    font-family: Georgia, Times, serif;
+  }
+}
+// Card Style
+p {
+  text-align: end;
+}
+
+button {
+  border: 0;
+  float: right;
+  padding: 6px 10px;
+  border-radius: 6px !important;
+  color: $clear;
+  background-color: $secondary; // Dynamic Color
+  button:hover {
+    background-color: $secondary; // Dynamic Color + Gradient
+  }
+}
+
+a {
+  display: flex;
+  width: 2rem;
+  font-size: 36px;
+  color: $secondary !important; // Dynamic Color
+}
+
+a:hover {
+  color: $secondary !important; // Dynamic Color + Gradient
+}
+// Boilerplate
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/utilities";
-@import "../node_modules/bootstrap/scss/utilities/api";
