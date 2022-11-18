@@ -1,20 +1,11 @@
 // Required Imports
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
-// Colors
-$clear: snow;
-$default: $gray-900;
-$blue: steelblue; $brown: saddlebrown; // Combo 1
-$red: firebrick; $black: $gray-800; // Combo 2
-$thistle: thistle; $teal: teal; // Combo 3
-$olive: darkseagreen; $purple: rebeccapurple; // Combo 4
-$violet: darkslateblue; $green: seagreen; // Combo 5
-$gray: darkslategray; $pink: deeppink; // Combo 6
-$orange: lightsalmon; $crimson: maroon; // Combo 7
-$khaki: moccasin; $sage: darkolivegreen; // Combo 8
-$wood: $orange-800; $cyan: royalblue; // Combo 9
-$plum: plum; $magenta: mediumvioletred; // Combo 10
-$primary: $plum; $secondary: $magenta;
+// Fade Animation
+@keyframes fade {
+  from {opacity: 0}
+  to {opacity: 1}
+}
 // Container Style
 :root {
   height: 100%;
@@ -22,61 +13,77 @@ $primary: $plum; $secondary: $magenta;
   align-items: center;
   justify-content: center;
   margin: 0 20px;
-  background-color: $primary; // Dynamic Color
+  background-color: var(--primary);
+  transition: background-color 1s linear;
+  --light: #6C757D;
+  --shadow: #212529;
 }
 
 body {
   width: 32rem;
   border-radius: 6px;
-  background-color: $clear;
-  box-shadow: -1px 2px 4px $default;
+  background-color: snow;
+  box-shadow: -1px 2px 4px var(--shadow);
   font-family: Georgia, Times, serif !important;
   #root > div {
-    color: $secondary; // Dynamic Color
     padding: 2rem 3rem;
+    color: var(--secondary);
+    transition: color 1s linear;
   }
 }
-// Card Style
+// Text Style
+h2, p, div > a {
+  animation: fade 1s linear 1;
+}
+
 p {
   text-align: end;
 }
-
+// Button Style
 button {
   border: 0;
   float: right;
   padding: 6px 10px;
   border-radius: 6px !important;
-  color: $clear;
-  background-color: $secondary; // Dynamic Color
-  button:hover {
-    background-color: $secondary; // Dynamic Color + Gradient
-  }
+  color: snow;
+  background-color: var(--secondary);
+  transition: background-color 1s linear;
 }
-
+button:hover {
+  background-color: var(--primary);
+  transition: background-color 1s linear;
+}
+// Tweet Style
 div > a {
   display: flex;
   width: 2rem;
   font-size: 36px;
-  color: $secondary !important; // Dynamic Color
+  color: var(--secondary);
+  transition: color 1s linear;
 }
-
 div > a:hover {
-  color: $secondary !important; // Dynamic Color + Gradient
+  color: var(--primary);
+  transition: color 1s linear;
 }
-
+// Header Style
 header {
   top: 2rem;
   position: absolute;
-  color: $clear;
-  text-shadow: -1px 2px 2px $default;
+  color: snow;
+  text-shadow: -1px 2px 2px var(--shadow);
   a {
     text-decoration: none;
     font-weight: bold;
     font-style: italic;
-    color: $clear;
+    color: snow;
   }
   a:hover {
-    color: $clear;
+    color: lighten(snow, 100);
+    transition: color 0.2s linear;
+  }
+  a:active {
+    color: darken(snow, 4);
+    transition: color 0.2s linear;
   }
 }
 
