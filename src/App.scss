@@ -3,6 +3,7 @@
 @import "../node_modules/bootstrap/scss/variables";
 // Colors
 $clear: snow;
+$default: $gray-900;
 $blue: steelblue; $brown: saddlebrown; // Combo 1
 $red: firebrick; $black: $gray-800; // Combo 2
 $thistle: thistle; $teal: teal; // Combo 3
@@ -13,28 +14,26 @@ $orange: lightsalmon; $crimson: maroon; // Combo 7
 $khaki: moccasin; $sage: darkolivegreen; // Combo 8
 $wood: $orange-800; $cyan: royalblue; // Combo 9
 $plum: plum; $magenta: mediumvioletred; // Combo 10
-$primary: plum; $secondary: mediumvioletred;
+$primary: $plum; $secondary: $magenta;
 // Container Style
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary // Dynamic Color
+  margin: 0 20px;
+  background-color: $primary; // Dynamic Color
 }
 
 body {
+  width: 32rem;
   border-radius: 6px;
   background-color: $clear;
+  box-shadow: -1px 2px 4px $default;
+  font-family: Georgia, Times, serif !important;
   #root > div {
     color: $secondary; // Dynamic Color
-    width: 32rem;
     padding: 2rem 3rem;
-    font-family: Georgia, Times, serif;
   }
 }
 // Card Style
@@ -54,15 +53,37 @@ button {
   }
 }
 
-a {
+div > a {
   display: flex;
   width: 2rem;
   font-size: 36px;
   color: $secondary !important; // Dynamic Color
 }
 
-a:hover {
+div > a:hover {
   color: $secondary !important; // Dynamic Color + Gradient
+}
+
+header {
+  top: 2rem;
+  position: absolute;
+  color: $clear;
+  text-shadow: -1px 2px 2px $default;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    color: $clear;
+  }
+  a:hover {
+    color: $clear;
+  }
+}
+
+@media only screen and (max-height: 428px) {
+  header {
+    visibility: hidden;
+  }
 }
 // Boilerplate
 @import "../node_modules/bootstrap/scss/mixins";
