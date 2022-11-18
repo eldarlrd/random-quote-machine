@@ -15,6 +15,10 @@ $wood: $orange-800; $cyan: royalblue; // Combo 9
 $plum: plum; $magenta: mediumvioletred; // Combo 10
 $primary: plum; $secondary: mediumvioletred;
 // Container Style
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   height: 100%;
   display: flex;
