@@ -9,16 +9,17 @@ import "./App.scss";
 // URLs
 const quoteURL = "https://type.fit/api/quotes";
 const githubURL = "https://github.com/eldarlrd";
-const twitterURL = "https://twitter.com/intent/tweet";
+const twitterURL = "https://twitter.com/intent/tweet?text=";
+const deployURL = "https://eldarlrd.github.io/random-quote-machine";
 // State Declaration
 export default function App() {
   const [ quote, setQuote ] = useState(null);
 // Random Quote
-  const rollQuote = Math.floor((Math.random() * 1000));
+  const rollQuote = Math.floor(Math.random() * 1640); // API Length
   const [ random, setRandom ] = useState(rollQuote);
   const newQuote = () => setRandom(rollQuote);
 // Random Theme
-  const rollTheme = Math.floor((Math.random() * 10));
+  const rollTheme = Math.floor(Math.random() * 10);
   const [ theme, setTheme ] = useState(rollTheme);
   const newTheme = () => setTheme(rollTheme);
 // Style Changer
@@ -40,6 +41,11 @@ export default function App() {
       setQuote(response.data);
     });
   }, []);
+// Share Format
+  const tweet = quote ?
+    `${twitterURL}"${quote[random].text}"${quote[random].author ?
+    " - " + quote[random].author : ""} > via ${deployURL} %23quotes`
+    : twitterURL;
 // Render
   return (
     <>
@@ -80,7 +86,7 @@ export default function App() {
         title="Tweet this quote!"
         target="_blank"
         rel="noreferrer"
-        href={twitterURL}>
+        href={tweet}>
         <FontAwesomeIcon icon={faSquareTwitter}/>
       </a>
     </div>
