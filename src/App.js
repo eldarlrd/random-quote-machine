@@ -10,7 +10,7 @@ import "./App.scss";
 const quoteURL = "https://type.fit/api/quotes";
 const githubURL = "https://github.com/eldarlrd";
 const twitterURL = "https://twitter.com/intent/tweet?text=";
-const deployURL = "https://eldarlrd.github.io/random-quote-machine";
+const deployURL = "eldarlrd.github.io/random-quote-machine";
 // State Declaration
 export default function App() {
   const [ quote, setQuote ] = useState(null);
