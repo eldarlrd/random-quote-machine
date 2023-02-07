@@ -50,9 +50,9 @@ button {
   background-color: var(--secondary);
   transition: background-color 1s linear;
 }
-button:hover {
+button:active {
   background-color: var(--primary);
-  transition: background-color 1s linear;
+  transition: background-color .1s linear;
 }
 // Tweet Style
 div > a {
@@ -63,8 +63,11 @@ div > a {
   transition: color 1s linear;
 }
 div > a:hover {
+  color: inherit;
+}
+div > a:active {
   color: var(--primary);
-  transition: color 1s linear;
+  transition: color .1s linear;
 }
 // Header Style
 header {
@@ -80,11 +83,11 @@ header {
   }
   a:hover {
     color: lighten(snow, 100);
-    transition: color 0.2s linear;
+    transition: color .1s linear;
   }
   a:active {
-    color: darken(snow, 4);
-    transition: color 0.2s linear;
+    color: grayscale(darken(snow, 4));
+    transition: color .1s linear;
   }
 }
 
