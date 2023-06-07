@@ -21,10 +21,12 @@ export default function App() {
   const [ random, setRandom ] = useState(null);
   const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
   const newQuote = () => {
-    setRandom(rollQuote);
-    setQuoteText(quote[random]?.text);
-    setQuoteAuthor(quote[random]?.author);
-    newTweet();
+    if (quote) {
+      setRandom(rollQuote);
+      setQuoteText(quote[random]?.text);
+      setQuoteAuthor(quote[random]?.author);
+      newTweet();
+    } else console.log('ye')
   };
   // Share Format
   const newTweet = () => {
@@ -56,8 +58,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (quote)
-      newQuote();
+    newQuote();
   }, [quote]);
 // Render
   return (
@@ -74,11 +75,18 @@ export default function App() {
 
     <div id="quote-box">
       <h2 id="text">
-        <FontAwesomeIcon icon={faQuoteLeft} /> {quoteText}
+        <FontAwesomeIcon icon={faQuoteLeft} /> {
+          quote ?
+            quote[random]?.text
+              ? quote[random]?.text
+              : '' : ''}
       </h2>
 
-      <p id="author">
-        - {quoteAuthor ? quoteAuthor : 'Unknown'}
+      <p id="author">- {
+        quote
+          ? quote[random]?.author
+              ? quote[random]?.author
+              : 'Unknown' : ''}
       </p>
 
       <button
