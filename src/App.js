@@ -14,8 +14,8 @@ const deployURL = "eldarlrd.github.io/random-quote-machine";
 // State Declaration
 export default function App() {
   const [ quote, setQuote ] = useState(null);
-  const [ quoteText, setQuoteText ] = useState('');
-  const [ quoteAuthor, setQuoteAuthor ] = useState('');
+  const [ quoteText, setQuoteText ] = useState(null);
+  const [ quoteAuthor, setQuoteAuthor ] = useState(null);
   const [ tweet, setTweet ] = useState(twitterURL);
   // Random Quote
   const [ random, setRandom ] = useState(null);
@@ -74,10 +74,10 @@ export default function App() {
 
     <div id="quote-box">
       <h2 id="text">
-        <FontAwesomeIcon icon={faQuoteLeft} /> {quoteText}
+        <FontAwesomeIcon icon={faQuoteLeft} /> {quote ? quoteText : ''}
       </h2>
 
-      <p id="author">- {quoteAuthor ? quoteAuthor : 'Unknown'}</p>
+      <p id="author">- {quote ? quoteAuthor : 'Unknown'}</p>
 
       <button
         id="new-quote"
