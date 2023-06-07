@@ -21,10 +21,10 @@ export default function App() {
   const [ random, setRandom ] = useState(null);
   const newQuote = () => {
     const rollQuote = Math.floor(Math.random() * quote.length); // API Length
-    newTweet();
     setRandom(rollQuote);
     setQuoteText(quote[random]?.text);
     setQuoteAuthor(quote[random]?.author);
+    newTweet();
   };
   // Share Format
   const newTweet = () => {
@@ -56,12 +56,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (quote) {
+    if (quote)
       newQuote();
-      newTweet();
-      setQuoteText(quote[random]?.text);
-      setQuoteAuthor(quote[random]?.author);
-    }
   }, [quote]);
 // Render
   return (
