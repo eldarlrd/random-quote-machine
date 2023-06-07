@@ -19,8 +19,8 @@ export default function App() {
   const [ tweet, setTweet ] = useState(twitterURL);
   // Random Quote
   const [ random, setRandom ] = useState(null);
+  const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
   const newQuote = () => {
-    const rollQuote = Math.floor(Math.random() * quote.length); // API Length
     setRandom(rollQuote);
     setQuoteText(quote[random]?.text);
     setQuoteAuthor(quote[random]?.author);
@@ -74,10 +74,12 @@ export default function App() {
 
     <div id="quote-box">
       <h2 id="text">
-        <FontAwesomeIcon icon={faQuoteLeft} /> {quote ? quoteText : ''}
+        <FontAwesomeIcon icon={faQuoteLeft} /> {quoteText}
       </h2>
 
-      <p id="author">- {quote ? quoteAuthor : 'Unknown'}</p>
+      <p id="author">
+        - {quoteAuthor ? quoteAuthor : 'Unknown'}
+      </p>
 
       <button
         id="new-quote"
@@ -91,7 +93,7 @@ export default function App() {
         target="_blank"
         rel="noreferrer"
         href={tweet}>
-        <FontAwesomeIcon icon={faSquareTwitter}/>
+        <FontAwesomeIcon icon={faSquareTwitter} />
       </a>
     </div>
     </>
