@@ -14,12 +14,25 @@ const deployURL = "eldarlrd.github.io/random-quote-machine";
 // State Declaration
 export default function App() {
   const [ quote, setQuote ] = useState(null);
-// Random Quote
-  const rollQuote = Math.floor(Math.random() * 1640); // API Length
-  const [ random, setRandom ] = useState(rollQuote);
-  const newQuote = () => setRandom(rollQuote);
+  const [ quoteText, setQuoteText ] = useState('');
+  const [ quoteAuthor, setQuoteAuthor ] = useState('');
+  const [ tweet, setTweet ] = useState(twitterURL);
+  // Random Quote
+  const [ random, setRandom ] = useState(null);
+  const newQuote = () => {
+    const rollQuote = Math.floor(Math.random() * quote.length); // API Length
+    newTweet();
+    setRandom(rollQuote);
+    setQuoteText(quote[random]?.text);
+    setQuoteAuthor(quote[random]?.author);
+  };
+  // Share Format
+  const newTweet = () => {
+    setTweet(`${twitterURL}"${quote[random]?.text}"${quote[random]?.author ?
+    " - " + quote[random]?.author : ""} > via ${deployURL} %23quotes`);
+  };
 // Random Theme
-  const rollTheme = Math.floor(Math.random() * 10);
+  const rollTheme = Math.floor(Math.random() * themes.length);
   const [ theme, setTheme ] = useState(rollTheme);
   const newTheme = () => setTheme(rollTheme);
 // Style Changer
@@ -41,11 +54,15 @@ export default function App() {
       setQuote(response.data);
     });
   }, []);
-// Share Format
-  const tweet = quote ?
-    `${twitterURL}"${quote[random].text}"${quote[random].author ?
-    " - " + quote[random].author : ""} > via ${deployURL} %23quotes`
-    : twitterURL;
+
+  useEffect(() => {
+    if (quote) {
+      newQuote();
+      newTweet();
+      setQuoteText(quote[random]?.text);
+      setQuoteAuthor(quote[random]?.author);
+    }
+  }, [quote]);
 // Render
   return (
     <>
@@ -61,26 +78,17 @@ export default function App() {
 
     <div id="quote-box">
       <h2 id="text">
-        <FontAwesomeIcon icon={faQuoteLeft}/> {
-        quote
-        ? quote[random].text
-        : "" }
+        <FontAwesomeIcon icon={faQuoteLeft} /> {quoteText}
       </h2>
 
-      <p id="author">- {
-        quote
-        ? quote[random].author
-          ? quote[random].author
-          : "Unknown"
-        : "" }
-      </p>
+      <p id="author">- {quoteAuthor ? quoteAuthor : 'Unknown'}</p>
 
       <button
         id="new-quote"
         onClick={() => {newQuote(); newTheme()}}>
           New Quote
       </button>
-      
+
       <a
         id="tweet-quote"
         title="Tweet this quote!"
