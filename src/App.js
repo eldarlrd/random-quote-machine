@@ -14,25 +14,13 @@ const deployURL = "eldarlrd.github.io/random-quote-machine";
 // State Declaration
 export default function App() {
   const [ quote, setQuote ] = useState(null);
-  const [ quoteText, setQuoteText ] = useState(null);
-  const [ quoteAuthor, setQuoteAuthor ] = useState(null);
-  const [ tweet, setTweet ] = useState(twitterURL);
   // Random Quote
   const [ random, setRandom ] = useState(null);
   const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
   const newQuote = () => {
-    if (quote) {
-      setRandom(rollQuote);
-      setQuoteText(quote[random]?.text);
-      setQuoteAuthor(quote[random]?.author);
-      newTweet();
-    } else console.log('ye')
+    setRandom(rollQuote);
   };
   // Share Format
-  const newTweet = () => {
-    setTweet(`${twitterURL}"${quote[random]?.text}"${quote[random]?.author ?
-    " - " + quote[random]?.author : ""} > via ${deployURL} %23quotes`);
-  };
 // Random Theme
   const rollTheme = Math.floor(Math.random() * themes.length);
   const [ theme, setTheme ] = useState(rollTheme);
@@ -58,6 +46,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+  if (quote)
     newQuote();
   }, [quote]);
 // Render
@@ -100,7 +89,10 @@ export default function App() {
         title="Tweet this quote!"
         target="_blank"
         rel="noreferrer"
-        href={tweet}>
+        href={`
+          ${twitterURL}"${quote ? quote[random]?.text : ''}"
+          ${quote ? quote[random]?.author ?
+          " - " + quote[random]?.author : '' : ''} > via ${deployURL} %23quotes`}>
         <FontAwesomeIcon icon={faSquareTwitter} />
       </a>
     </div>
