@@ -20,7 +20,6 @@ export default function App() {
   const newQuote = () => {
     setRandom(rollQuote);
   };
-  // Share Format
 // Random Theme
   const rollTheme = Math.floor(Math.random() * themes.length);
   const [ theme, setTheme ] = useState(rollTheme);
