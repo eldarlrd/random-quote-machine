@@ -90,9 +90,8 @@ export default function App() {
         target="_blank"
         rel="noreferrer"
         href={`
-          ${twitterURL}"${quote ? quote[random]?.text : ''}"
-          ${quote ? quote[random]?.author ?
-          " - " + quote[random]?.author : '' : ''} > via ${deployURL} %23quotes`}>
+          ${twitterURL}"${quote ? quote[random]?.text : ''}"${quote ? quote[random]?.author
+          ? ' - ' + quote[random]?.author : '' : ''} > via ${deployURL} %23quotes`}>
         <FontAwesomeIcon icon={faSquareTwitter} />
       </a>
     </div>
