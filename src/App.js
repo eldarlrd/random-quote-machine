@@ -7,7 +7,8 @@ import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
 import themes from "./themes.json";
 import "./App.scss";
 // URLs
-const quoteURL = "https://type.fit/api/quotes";
+const quoteURL = "https://api.api-ninjas.com/v1/quotes";
+const quoteKey = '9Pxg6NhSmyQqdJn03v3kGg==ZeOKJF7qmXP9PDxD';
 const githubURL = "https://github.com/eldarlrd";
 const twitterURL = "https://twitter.com/intent/tweet?text=";
 const deployURL = "eldarlrd.github.io/random-quote-machine";
@@ -16,10 +17,9 @@ export default function App() {
   const [ quote, setQuote ] = useState(null);
   // Random Quote
   const [ random, setRandom ] = useState(null);
+  const [ fetchNew, setFetchNew ] = useState(null);
   const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
-  const newQuote = () => {
-    setRandom(rollQuote);
-  };
+  const newQuote = () => setRandom(rollQuote);
 // Random Theme
   const rollTheme = Math.floor(Math.random() * themes.length);
   const [ theme, setTheme ] = useState(rollTheme);
@@ -39,10 +39,13 @@ export default function App() {
     }, [theme]);
 // API Fetch
   useEffect(() => {
-    axios.get(quoteURL).then(response => {
+    axios.get(quoteURL, {
+      headers: {
+        'X-Api-Key': quoteKey
+      }}).then(response => {
       setQuote(response.data);
     });
-  }, []);
+  }, [fetchNew]);
 
   useEffect(() => {
   if (quote)
@@ -65,8 +68,8 @@ export default function App() {
       <h2 id="text">
         <FontAwesomeIcon icon={faQuoteLeft} /> {
           quote ?
-            quote[random]?.text
-              ? quote[random]?.text
+            quote[random]?.quote
+              ? quote[random]?.quote
               : '' : ''}
       </h2>
 
@@ -79,7 +82,7 @@ export default function App() {
 
       <button
         id="new-quote"
-        onClick={() => {newQuote(); newTheme()}}>
+        onClick={() => {newQuote(); newTheme(); setFetchNew(Math.random())}}>
           New Quote
       </button>
 
@@ -89,7 +92,7 @@ export default function App() {
         target="_blank"
         rel="noreferrer"
         href={`
-          ${twitterURL}"${quote ? quote[random]?.text : ''}"${quote ? quote[random]?.author
+          ${twitterURL}"${quote ? quote[random]?.quote : ''}"${quote ? quote[random]?.author
           ? ' - ' + quote[random]?.author : '' : ''} > via ${deployURL} %23quotes`}>
         <FontAwesomeIcon icon={faSquareTwitter} />
       </a>
