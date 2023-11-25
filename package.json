@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deployer": "gh-pages -m 'build: Deployment' -d build",
+    "deployer": "npm run build && gh-pages -m 'build: Deployment' -d build",
     "lint": "eslint src --ext .js,.jsx --report-unused-disable-directives",
     "style": "stylelint 'src/**/*.scss'",
     "pretty": "prettier '{src,__{tests,mocks,snapshots}__}/**/*.{js,jsx}' --write",
