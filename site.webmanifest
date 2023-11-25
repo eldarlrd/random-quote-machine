@@ -1,0 +1,24 @@
+{
+  "name": "Random Quote Machine",
+  "short_name": "Quote Machine",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": [
+    "books",
+    "education"
+  ],
+  "display": "standalone",
+  "orientation": "natural",
+  "theme_color": "#fffafa",
+  "background_color": "#fffafa",
+  "description": "A Random Quote Machine",
+  "start_url": "https://eldarlrd.github.io/random-quote-machine/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
+}
