@@ -7,12 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 # Production
+404.html
 coverage
 node_modules
-build
+dist
+dist-ssr
 *.local
-*.tsbuildinfo
-# Editor
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea

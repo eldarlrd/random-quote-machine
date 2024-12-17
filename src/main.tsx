@@ -1,7 +1,7 @@
 /**
  * @license AGPL-3.0-only
  * Random Quote Machine - A Random Quote Machine
- * Copyright (C) 2022-2023 Eldar Pashazade <eldarlrd@pm.me>
+ * Copyright (C) 2022-2024 Eldar Pashazade <eldarlrd@pm.me>
  *
  * This file is part of Random Quote Machine.
  *
@@ -18,14 +18,21 @@
  * along with Random Quote Machine. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-import { App } from './app.jsx';
+import { App } from '@/App.tsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const root = document.getElementById('root');
+
+const queryClient = new QueryClient();
+
+if (root)
+  createRoot(root).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </StrictMode>
+  );

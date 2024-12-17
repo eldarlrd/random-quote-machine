@@ -2,9 +2,9 @@ import { faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-import './app.scss';
+import '@/App.scss';
 
 const THEMES = [
   {
@@ -49,7 +49,7 @@ const THEMES = [
   }
 ];
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = ''
 const API_URL = 'https://api.api-ninjas.com/v1/quotes';
 const SOURCE_URL = 'https://github.com/eldarlrd/random-quote-machine';
 const DEPLOY_URL = 'eldarlrd.github.io/random-quote-machine';
@@ -62,22 +62,23 @@ export const App = () => {
   const [random, setRandom] = useState(null);
   const [fetchNew, setFetchNew] = useState(null);
   const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
-  const newQuote = () => setRandom(rollQuote);
+  const newQuote = () => { setRandom(rollQuote); };
 
   // Random Theme
   const rollTheme = Math.floor(Math.random() * THEMES.length);
   const [theme, setTheme] = useState(rollTheme);
-  const newTheme = () => setTheme(rollTheme);
+  const newTheme = () => { setTheme(rollTheme); };
 
   // Style Changer
   useEffect(() => {
     const root = document.documentElement;
+
     root.style.setProperty(
       '--primary',
       theme ? THEMES[theme].primary : THEMES[theme].primary
     );
 
-    root?.style.setProperty(
+    root.style.setProperty(
       '--secondary',
       theme ? THEMES[theme].secondary : THEMES[theme].secondary
     );
@@ -93,6 +94,7 @@ export const App = () => {
       })
       .then(response => {
         setQuote(response.data);
+
         return;
       })
       .catch(error => {
@@ -108,7 +110,7 @@ export const App = () => {
     <>
       <header>
         Random Quote Machine
-        <br />© 2022 - 2023{' '}
+        <br />© 2022 - 2024{' '}
         <a
           title='Go to the Source'
           target='_blank'
