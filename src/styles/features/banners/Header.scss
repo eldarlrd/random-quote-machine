@@ -1,0 +1,35 @@
+@use '@/styles/variables' as *;
+
+header {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  user-select: none;
+
+  & h1,
+  h2 {
+    margin: 0;
+    color: $white;
+    font-weight: 600;
+    text-shadow: $shadow;
+  }
+
+  & h1 {
+    font-size: 1.125rem;
+    margin-bottom: 0.125rem;
+  }
+
+  & h2 {
+    font-size: 1.25rem;
+  }
+
+  & a {
+    font-style: italic;
+    margin-left: 0.25rem;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}

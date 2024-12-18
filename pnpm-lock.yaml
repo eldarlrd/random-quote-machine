@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/raleway':
+      '@fontsource-variable/cormorant':
         specifier: ^5.1.0
         version: 5.1.0
       '@fortawesome/fontawesome-svg-core':
@@ -29,9 +29,6 @@ importers:
       axios:
         specifier: ^1.7.9
         version: 1.7.9
-      bootstrap:
-        specifier: ^5.3.3
-        version: 5.3.3(@popperjs/core@2.11.8)
       joi:
         specifier: ^17.13.3
         version: 17.13.3
@@ -335,8 +332,8 @@ packages:
     resolution: {integrity: sha512-zSkKow6H5Kdm0ZUQUB2kV5JIXqoG0+uH5YADhaEHswm664N9Db8dXSi0nMJpacpMf+MyyglF1vnZohpEg5yUtg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource-variable/raleway@5.1.0':
-    resolution: {integrity: sha512-TtV3e3ZLfGu6XmqRDvZ0Q4cXlRs4Rwbxsc+Te3yMtJKRQgNS/OBRtLjztb3cCrZWTPvH7bKKWjtBlC8yuZWWVw==}
+  '@fontsource-variable/cormorant@5.1.0':
+    resolution: {integrity: sha512-VMU0MPKAxL6uLwvBFM0573xe4DOPnjJkGI6AMwPF1Tj+IROvMk9HUXTLNCkmZIqF8tgmKQfDWc+QAzWeOi3J6w==}
 
   '@fortawesome/fontawesome-common-types@6.7.2':
     resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
@@ -483,9 +480,6 @@ packages:
   '@parcel/watcher@2.5.0':
     resolution: {integrity: sha512-i0GV1yJnm2n3Yq1qw6QrUrd/LI9bE8WEBOTtOkpCXHHdyN3TAGgqAK/DAT05z4fq2x04cARXt2pDmjWjL92iTQ==}
     engines: {node: '>= 10.0.0'}
-
-  '@popperjs/core@2.11.8':
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   '@rollup/rollup-android-arm-eabi@4.28.1':
     resolution: {integrity: sha512-2aZp8AES04KI2dy3Ss6/MDjXbwBzj+i0GqKtWXgw2/Ma6E4jJvujryO6gJAghIRVz7Vwr9Gtl/8na3nDUKpraQ==}
@@ -846,11 +840,6 @@ packages:
 
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
-
-  bootstrap@5.3.3:
-    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
-    peerDependencies:
-      '@popperjs/core': ^2.11.8
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -2374,7 +2363,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@fontsource-variable/raleway@5.1.0': {}
+  '@fontsource-variable/cormorant@5.1.0': {}
 
   '@fortawesome/fontawesome-common-types@6.7.2': {}
 
@@ -2489,8 +2478,6 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.0
       '@parcel/watcher-win32-x64': 2.5.0
     optional: true
-
-  '@popperjs/core@2.11.8': {}
 
   '@rollup/rollup-android-arm-eabi@4.28.1':
     optional: true
@@ -2839,10 +2826,6 @@ snapshots:
   balanced-match@1.0.2: {}
 
   balanced-match@2.0.0: {}
-
-  bootstrap@5.3.3(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
 
   brace-expansion@1.1.11:
     dependencies:

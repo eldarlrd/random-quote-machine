@@ -10,7 +10,6 @@
 > - **[Axios](https://axios-http.com)**
 > - **[joi](https://joi.dev)**
 > - **[modern-normalize](https://github.com/sindresorhus/modern-normalize)**
-> - **[Bootstrap](https://getbootstrap.com)**
 > - **[SCSS](https://sass-lang.com)**
 > - **[Font Awesome](https://fontawesome.com)**
 > - **[Fontsource](https://fontsource.org)**

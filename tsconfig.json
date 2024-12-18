@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "paths": { "@/*": ["./src/*"] },
+    "paths": { "@/*": ["./src/*"], "%/*": ["./src/config/*"] },
     // Linting
     "strict": true,
     "noUnusedLocals": true,

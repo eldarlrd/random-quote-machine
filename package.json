@@ -1,7 +1,7 @@
 {
   "name": "random-quote-machine",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
   "keywords": [
     "quotes"
@@ -35,14 +35,13 @@
     "experimentalTernaries": true
   },
   "dependencies": {
-    "@fontsource-variable/raleway": "^5.1.0",
+    "@fontsource-variable/cormorant": "^5.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tanstack/react-query": "^5.62.7",
     "axios": "^1.7.9",
-    "bootstrap": "^5.3.3",
     "joi": "^17.13.3",
     "modern-normalize": "^3.0.1",
     "react": "^19.0.0",
