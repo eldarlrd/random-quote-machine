@@ -1,47 +1,47 @@
 interface ColorSet {
-  primary: string;
-  secondary: string;
+  foreground: string;
+  background: string;
 }
 
 export const COLORS: ColorSet[] = [
   {
-    primary: 'steelblue',
-    secondary: 'saddlebrown'
+    foreground: '#02343f',
+    background: '#f0edcc'
   },
   {
-    primary: 'firebrick',
-    secondary: '#343a40'
+    foreground: '#331b3f',
+    background: '#acc7b4'
   },
   {
-    primary: 'thistle',
-    secondary: 'teal'
+    foreground: '#0a174e',
+    background: '#f5d042'
   },
   {
-    primary: 'darkseagreen',
-    secondary: 'rebeccapurple'
+    foreground: '#07553b',
+    background: '#ced46a'
   },
   {
-    primary: 'darkslateblue',
-    secondary: 'seagreen'
+    foreground: '#a4193d',
+    background: '#ffdfb9'
   },
   {
-    primary: 'darkslategray',
-    secondary: 'deeppink'
+    foreground: '#00203f',
+    background: '#adefd1'
   },
   {
-    primary: 'lightsalmon',
-    secondary: 'maroon'
+    foreground: '#c72d1b',
+    background: '#fdd20e'
   },
   {
-    primary: '#e5b35e',
-    secondary: 'darkolivegreen'
+    foreground: '#00239c',
+    background: '#ed6a66'
   },
   {
-    primary: '#653208',
-    secondary: 'royalblue'
+    foreground: '#4831d4',
+    background: '#ccf381'
   },
   {
-    primary: 'plum',
-    secondary: 'mediumvioletred'
+    foreground: '#4a274f',
+    background: '#f0a07b'
   }
 ];

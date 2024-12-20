@@ -1,9 +1,13 @@
 @use '@/styles/variables' as *;
 
 :root {
-  background: $white;
+  --foreground: oklch(14% 0 0deg / 50%);
+  --background: oklch(98% 0 0deg);
+
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  background: var(--background);
+  transition: background-color $transition;
 }
 
 body {
@@ -13,8 +17,8 @@ body {
 
 #root {
   gap: 2rem;
+  width: 34rem;
   display: inherit;
-  max-width: 34rem;
   min-height: 100dvh;
   font-family: $font;
   flex-direction: column;
@@ -22,7 +26,8 @@ body {
 
 ::selection {
   color: $white;
-  background: $black;
+  background: var(--background);
+  transition: background-color $transition;
 }
 
 a,
@@ -34,8 +39,8 @@ button {
   text-decoration: none;
   border-radius: $radius;
   background: transparent;
-  transition: color $transition;
   -webkit-tap-highlight-color: $tap;
+  transition: color $transition-short;
 
   &:focus-visible {
     outline: 0.125rem solid currentcolor;

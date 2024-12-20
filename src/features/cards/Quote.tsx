@@ -1,75 +1,83 @@
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft, faRotate } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState, type ReactElement } from 'react';
 
 import '@/styles/features/cards/Quote.scss';
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import axios from 'axios';
-
 import { COLORS } from '%/colors.ts';
+import { type QuoteObject, quoteSchema } from '@/config/schemas.ts';
+import { useApi } from '@/hooks/useApi.ts';
 
-const API_KEY = '';
-const DEPLOY_URL = 'eldarlrd.github.io/random-quote-machine';
-const X_URL = 'https://twitter.com/intent/tweet?text=';
+const QUOTE_KEY = '/v1/quotes';
+const X_URL = 'https://x.com/intent/post?text=';
+const SITE_URL = 'eldarlrd.github.io/random-quote-machine';
+
+const initialState: QuoteObject = {
+  quote: undefined,
+  author: undefined,
+  category: undefined
+};
+
+const getRandomTheme = (): number => ~~(Math.random() * COLORS.length);
 
 export const Quote = (): ReactElement => {
-  const [quote, setQuote] = useState(null);
-  // const { data = [], isLoading } = useApi(pathname, SCHEMAS.albums);
+  const [theme, setTheme] = useState(getRandomTheme());
 
-  // Random Quote
-  const [random, setRandom] = useState(null);
-  const rollQuote = Math.floor(Math.random() * quote?.length); // API Length
-  const newQuote = () => {
-    setRandom(rollQuote);
-  };
+  const {
+    data: quoteSet = [initialState],
+    isRefetching,
+    isFetching,
+    refetch
+  } = useApi<QuoteObject[]>(QUOTE_KEY, quoteSchema);
 
-  // Random Theme
-  const rollTheme = Math.floor(Math.random() * COLORS.length);
-  const [theme, setTheme] = useState(rollTheme);
-  const newTheme = () => {
-    setTheme(rollTheme);
-  };
-
-  // Style Changer
+  // Theme Switch
   useEffect(() => {
     const root = document.documentElement;
 
-    root.style.setProperty(
-      '--primary',
-      theme ? COLORS[theme].primary : COLORS[theme].primary
-    );
-
-    root.style.setProperty(
-      '--secondary',
-      theme ? COLORS[theme].secondary : COLORS[theme].secondary
-    );
+    root.style.setProperty('--foreground', COLORS[theme].foreground);
+    root.style.setProperty('--background', COLORS[theme].background);
   }, [theme]);
 
+  // New Quote
   useEffect(() => {
-    if (quote) newQuote();
-  }, [quote]);
+    if (!isRefetching) {
+      let newTheme = getRandomTheme();
+
+      while (newTheme === theme) newTheme = getRandomTheme();
+
+      setTheme(newTheme);
+    }
+  }, [isRefetching]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const { quote = 'Loading...', author = 'Unknown' } = quoteSet[0]; // Always a single element
 
   return (
     <main>
       <figure>
         <figcaption>
           <h3>
-            <FontAwesomeIcon icon={faQuoteLeft} size='xl' />
-            <blockquote>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel
-              ligula dignissim ante fermentum finibus.
-            </blockquote>
+            <FontAwesomeIcon icon={faQuoteLeft} size='lg' />
+            <blockquote>{quote}</blockquote>
           </h3>
 
-          <q>- Unknown</q>
+          <q>- {author}</q>
         </figcaption>
 
         <footer>
-          <button type='button' title='Share'>
+          <a
+            target='_blank'
+            title='Share'
+            type='text/html'
+            rel='external noreferrer'
+            href={`${X_URL}"${quote}" - ${author} %7C ${SITE_URL} %23quotes`}>
             <FontAwesomeIcon icon={faXTwitter} size='lg' />
-          </button>
-          <button type='button'>
-            <FontAwesomeIcon icon={faRotate} size='lg' />
+          </a>
+
+          <button
+            type='button'
+            disabled={isFetching}
+            onClick={() => void refetch()}>
+            <FontAwesomeIcon icon={faRotate} size='lg' spin={isFetching} />
             <span>New</span>
           </button>
         </footer>
@@ -77,51 +85,3 @@ export const Quote = (): ReactElement => {
     </main>
   );
 };
-
-// <div id='quote-box'>
-//   <h2 id='text'>
-//     <FontAwesomeIcon icon={faQuoteLeft} />{' '}
-//     {quote ?
-//       quote[random]?.quote ?
-//         quote[random]?.quote
-//       : ''
-//     : ''}
-//   </h2>
-
-//   <p id='author'>
-//     -{' '}
-//     {quote ?
-//       quote[random]?.author ?
-//         quote[random]?.author
-//       : 'Unknown'
-//     : ''}
-//   </p>
-
-//   <button
-//     id='new-quote'
-//     type='button'
-//     onClick={() => {
-//       newQuote();
-//       newTheme();
-//       setFetchNew(Math.random());
-//     }}>
-//     New Quote
-//   </button>
-
-//   <a
-//     id='x-quote'
-//     title='Post this quote!'
-//     target='_blank'
-//     type='text/html'
-//     rel='noopener noreferrer nofollow external'
-//     href={`
-//         ${X_URL}"${quote ? quote[random]?.quote : ''}"${
-//           quote ?
-//             quote[random]?.author ?
-//               ' - ' + quote[random]?.author
-//             : ''
-//           : ''
-//         } > via ${DEPLOY_URL} %23quotes`}>
-//     <FontAwesomeIcon icon={faSquareXTwitter} />
-//   </a>
-// </div>
