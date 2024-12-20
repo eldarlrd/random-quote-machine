@@ -26,7 +26,7 @@ body {
 
 ::selection {
   color: $white;
-  background: var(--background);
+  background: var(--foreground);
   transition: background-color $transition;
 }
 
