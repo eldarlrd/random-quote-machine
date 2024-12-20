@@ -1,7 +1,7 @@
 {
   "name": "random-quote-machine",
   "private": true,
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "module",
   "keywords": [
     "quotes"
@@ -53,6 +53,7 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
+    "esbuild": "=0.24.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.7.0",
@@ -72,6 +73,7 @@
     "stylelint-config-standard-scss": "^14.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.18.1",
-    "vite": "^6.0.4"
+    "vite": "^6.0.4",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

@@ -5,7 +5,7 @@ import { useEffect, useState, type ReactElement } from 'react';
 
 import '@/styles/features/cards/Quote.scss';
 import { COLORS } from '%/colors.ts';
-import { type QuoteObject, quoteSchema } from '@/config/schemas.ts';
+import { type QuoteObject, quoteSchema } from '%/schemas.ts';
 import { useApi } from '@/hooks/useApi.ts';
 
 const QUOTE_KEY = '/v1/quotes';

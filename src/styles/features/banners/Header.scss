@@ -10,7 +10,7 @@ header {
     margin: 0;
     color: $white;
     font-weight: bold;
-    text-shadow: $shadow;
+    text-shadow: $shadow $black;
   }
 
   & h1 {

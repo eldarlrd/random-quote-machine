@@ -14,7 +14,7 @@ main {
     padding: 1rem 2rem;
     background: $white;
     height: fit-content;
-    box-shadow: $shadow;
+    box-shadow: $shadow $tap;
     border-radius: $radius;
     color: var(--foreground);
     transition: color $transition;
