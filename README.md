@@ -14,6 +14,7 @@
 > - **[Colorion](https://2colors.colorion.co)**
 > - **[Font Awesome](https://fontawesome.com)**
 > - **[Fontsource](https://fontsource.org)**
+> - **[Vite PWA](https://vite-pwa-org.netlify.app)**
 > - **[Vite](https://vite.dev)**
 >
 > displaying random quotes.
