@@ -10,7 +10,7 @@ import { useApi } from '@/hooks/useApi.ts';
 
 const QUOTE_KEY = '/v1/quotes';
 const X_URL = 'https://x.com/intent/post?text=';
-const SITE_URL = 'eldarlrd.github.io/random-quote-machine';
+const SITE_URL = 'eldarlrd.is-a.dev/random-quote-machine';
 
 const initialState: QuoteObject = {
   quote: undefined,
@@ -18,7 +18,7 @@ const initialState: QuoteObject = {
   category: undefined
 };
 
-const getRandomTheme = (): number => ~~(Math.random() * COLORS.length);
+const getRandomTheme = (): number => Math.floor(Math.random() * COLORS.length);
 
 export const Quote = (): ReactElement => {
   const [theme, setTheme] = useState(getRandomTheme());

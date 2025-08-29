@@ -1,7 +1,7 @@
 /**
  * @license AGPL-3.0-only
  * Random Quote Machine - A Random Quote Machine
- * Copyright (C) 2022-2024 Eldar Pashazade <eldarlrd@pm.me>
+ * Copyright (C) 2022-2025 Eldar Pashazade <eldarlrd@pm.me>
  *
  * This file is part of Random Quote Machine.
  *

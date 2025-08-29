@@ -12,7 +12,7 @@
   "theme_color": "#fffafa",
   "background_color": "#fffafa",
   "description": "A Random Quote Machine",
-  "start_url": "https://eldarlrd.github.io/random-quote-machine/",
+  "start_url": "https://eldarlrd.is-a.dev/random-quote-machine/",
   "icons": [
     {
       "src": "favicon.png",

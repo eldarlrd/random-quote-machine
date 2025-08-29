@@ -8,7 +8,7 @@ export const Header = (): ReactElement => (
     <h1>Random Quote Machine</h1>
 
     <h2>
-      © 2022 - 2024
+      © 2022 - 2025
       <a
         title='Source'
         target='_blank'
